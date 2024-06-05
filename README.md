@@ -1,36 +1,227 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NStart Project
 
-## Getting Started
+🚨🚨 Project under construction 🚨🚨
 
-First, run the development server:
+This is a starter template for projects using Next.js 14 with TypeScript and Tailwind CSS. It includes a basic folder structure to help you get started quickly.
+
+## Table of Contents
+
+- NStart Project
+  - Table of Contents
+  - [Dependencies](#dependencies)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Installation Steps](#installation-steps)
+  - [Available Scripts](#available-scripts)
+    - [Start Project](#start-project)
+    - [Build Project](#build-project)
+    - [Start Production Server](#start-production-server)
+  - [Tailwind CSS Configuration](#tailwind-css-configuration)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Folder Structure](#folder-structure)
+  - [Author](#author)
+
+## Dependencies
+
+- [Next.js 14](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Installation
+
+### Prerequisites
+
+- Node.js
+- Yarn, pnpm or npm (personal preference)
+
+### Installation Steps
+
+1. Clone the repository
+
+   1. Usando https
+
+   ```bash
+   git clone https://github.com/samuelrms/nstart-project.git
+   ```
+
+   2. Usando SSH
+
+   ```bash
+    git clone git@github.com:samuelrms/nstart-project.git
+   ```
+
+   3. Usando GitHub CLI
+
+   ```bash
+    gh repo clone samuelrms/nstart-project
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd nstart-project
+   ```
+
+3. Install the dependencies:
+
+   1. If you are using `npm` as your package manager, you can install it by running the following command in your terminal:
+
+   ```bash
+    npm i next-otp
+   ```
+
+   2. If you are using `yarn` as your package manager, you can install it by running the following command in your terminal:
+
+   ```bash
+    yarn i next-otp
+   ```
+
+   3. If you are using `pnpm` as your package manager, you can install it by running the following command in your terminal:
+
+   ```bash
+   pnpm add next-otp
+   ```
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### Start Project
+
+1. npm
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. yarn
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. pnpm
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Runs the app in development mode.
+Open <http://localhost:3000> to view it in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Build Project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. npm
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. yarn
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+yarn build
+```
+
+3. pnpm
+
+```bash
+pnpm build
+```
+
+Builds the app for production.
+
+### Start Production Server
+
+1. npm
+
+```bash
+npm run start
+```
+
+2. yarn
+
+```bash
+yarn start
+```
+
+3. pnpm
+
+```bash
+pnpm start
+```
+
+Starts the production server.
+
+## Tailwind CSS Configuration
+
+The tailwind.config.js file contains Tailwind CSS configurations.
+To customize the styles, edit this file as needed.
+
+## Contributing
+
+Feel free to contribute to this project.
+To get started, you can open an `issue` or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Folder Structure
+
+    .
+    ╠══ README.md
+    ╠══ postcss.config.mjs
+    ╠══ package.json
+    ╠══ .gitignore
+    ╠══ next.config.mjs
+    ╠══ public/
+    ║    ╠══ vercel.svg
+    ║    ╚══ next.svg
+    ╠══ src/
+    ║    ╠══ components/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ providers/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ screens/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ types/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ enum/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ service/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ lib/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ app/
+    ║    ║    ╠══ page.tsx
+    ║    ║    ╠══ layout.tsx
+    ║    ║    ╠══ favicon.ico
+    ║    ║    ╚══ globals.css
+    ║    ╠══ functions/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ schema/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ utils/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ errors/
+    ║    ║    ╚══ index.ts
+    ║    ╚══ mocks
+    ║    ║    ╚══ index.ts
+    ╠══ .eslintrc.json
+    ╠══ .env
+    ╠══ tsconfig.json
+    ╠══ tailwind.config.ts
+    ╚══ pnpm-lock.yaml
+
+## Author
+
+### Samuel Ramos
+
+- [Github](https://github.com/samuelrms)
+- [Instagram](https://www.instagram.com/samuelramos.dev/)
+- [LinkedIn](https://www.linkedin.com/in/samuelaoramos/)
+- [Portfolio](https://samuelramos.dev)
+- [WhatsApp](https://api.whatsapp.com/send?1=pt_BR&phone=5534988676166)
+- [Email](mailto:samuelaoliveiraramos@gmail.com)
