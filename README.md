@@ -171,49 +171,73 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Folder Structure
 
     .
-    ╠══ README.md
-    ╠══ postcss.config.mjs
-    ╠══ package.json
-    ╠══ .gitignore
+    ╠══ .env
     ╠══ next.config.mjs
+    ╠══ postcss.config.mjs
+    ╠══ LICENSE
+    ╠══ pnpm-lock.yaml
+    ╠══ tailwind.config.ts
+    ╠══ tsconfig.json
+    ╠══ .eslintrc.json
     ╠══ public/
     ║    ╠══ vercel.svg
     ║    ╚══ next.svg
-    ╠══ src/
-    ║    ╠══ components/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ providers/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ screens/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ types/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ enum/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ service/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ lib/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ app/
-    ║    ║    ╠══ page.tsx
-    ║    ║    ╠══ layout.tsx
-    ║    ║    ╠══ favicon.ico
-    ║    ║    ╚══ globals.css
-    ║    ╠══ functions/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ schema/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ utils/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ errors/
-    ║    ║    ╚══ index.ts
-    ║    ╚══ mocks
-    ║    ║    ╚══ index.ts
-    ╠══ .eslintrc.json
-    ╠══ .env
-    ╠══ tsconfig.json
-    ╠══ tailwind.config.ts
-    ╚══ pnpm-lock.yaml
+    ╠══ README.md
+    ╠══ .gitignore
+    ╠══ package.json
+    ╚══ src
+         ╠══ components/
+         ║    ╚══ index.ts
+         ╠══ errors/
+         ║    ╚══ index.ts
+         ╠══ app/
+         ║    ╠══ layout.tsx
+         ║    ╠══ favicon.ico
+         ║    ╠══ api/
+         ║    ║    ╠══ auth/
+         ║    ║    ║    ╚══ [...nextauth]
+         ║    ║    ║         ╚══ route.ts
+         ║    ║    ╠══ public/
+         ║    ║    ║    ╚══ route.ts
+         ║    ║    ╚══ secure
+         ║    ║         ╚══ route.ts
+         ║    ╠══ page.tsx
+         ║    ╚══ globals.css
+         ╠══ providers/
+         ║    ╚══ index.ts
+         ╠══ service/
+         ║    ╠══ index.ts
+         ║    ╚══ customFetch
+         ║         ╠══ API.ts
+         ║         ╠══ fetch.types.ts
+         ║         ╠══ SERVER.ts
+         ║         ╚══ index.ts
+         ╠══ mocks/
+         ║    ╚══ index.ts
+         ╠══ lib/
+         ║    ╠══ nextAuth/
+         ║    ║    ╠══ options/
+         ║    ║    ║    ╚══ index.ts
+         ║    ║    ╠══ auth/
+         ║    ║    ║    ╚══ index.ts
+         ║    ║    ╚══ index.ts
+         ║    ╚══ index.ts
+         ╠══ utils/
+         ║    ╚══ index.ts
+         ╠══ constants/
+         ║    ╚══ index.ts
+         ╠══ types/
+         ║    ╚══ index.ts
+         ╠══ schema/
+         ║    ╚══ index.ts
+         ╠══ enum/
+         ║    ╠══ method.fetch.ts
+         ║    ╚══ index.ts
+         ╠══ screens/
+         ║    ╚══ index.ts
+         ╚══ functions
+              ╠══ createQueryStrings.ts
+              ╚══ index.ts
 
 ## Author
 
