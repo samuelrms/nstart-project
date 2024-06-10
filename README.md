@@ -148,7 +148,7 @@ This command uses _**create-next-app**_ to bootstrap a new Next.js application u
 
 Both commands are run using _**npx**_, which is a package runner tool that comes with _**npm**_. It allows you to run packages without having to install them globally first. <YOUR_APP_NAME> should be replaced with the name you want for your new project.
 
-Remember to navigate into your new project directory with cd <YOUR*APP_NAME> before starting the development server with ***npm run dev**_, _**yarn dev**_ or _**pnpm dev**\_. Enjoy coding! 😊
+Remember to navigate into your new project directory with cd <YOUR\*APP*NAME> before starting the development server with**\*npm run dev***, _**yarn dev**_ or \_**pnpm dev**\_. Enjoy coding! 😊
 
 ## Available Scripts
 
@@ -334,39 +334,34 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Folder Structure
 
     .
+    ╠══ next.config.mjs
+    ╠══ LICENSE
+    ╠══ .eslintrc.json
+    ╠══ tailwind.config.ts
+    ╠══ README.md
+    ╠══ public/
+    ║    ╠══ vercel.svg
+    ║    ╚══ next.svg
+    ╠══ .env
+    ╠══ tsconfig.json
+    ╠══ package.json
     ╠══ src/
-    ║    ╠══ constants/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ functions/
-    ║    ║    ╠══ createQueryStrings.ts
-    ║    ║    ╚══ index.ts
-    ║    ╠══ screens/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ Home
-    ║    ║    ║    ╚══ index.tsx
-    ║    ╠══ errors/
+    ║    ╠══ schema/
     ║    ║    ╚══ index.ts
     ║    ╠══ mocks/
     ║    ║    ╚══ index.ts
-    ║    ╠══ types/
-    ║    ║    ╠══ QueryArgs.ts
-    ║    ║    ╚══ index.ts
-    ║    ╠══ schema/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ utils/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ enum/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ method.fetch.ts
-    ║    ╠══ providers/
-    ║    ║    ╠══ index.tsx
-    ║    ║    ╠══ nextUI.provider.tsx
-    ║    ║    ╠══ nextAuth.privider.tsx
-    ║    ║    ╚══ redux.provider.tsx
-    ║    ╠══ components/
+    ║    ╠══ service/
+    ║    ║    ╠══ customFetch/
+    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ╠══ fetch.types.ts
+    ║    ║    ║    ╠══ SERVER.ts
+    ║    ║    ║    ╚══ API.ts
     ║    ║    ╚══ index.ts
     ║    ╠══ app/
-    ║    ║    ╠══ api/
+    ║    ║    ╠══ page.tsx
+    ║    ║    ╠══ layout.tsx
+    ║    ║    ╠══ favicon.ico
+    ║    ║    ╚══ api
     ║    ║    ║    ╠══ public/
     ║    ║    ║    ║    ╚══ route.ts
     ║    ║    ║    ╠══ auth/
@@ -374,59 +369,65 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     ║    ║    ║    ║    ║    ╚══ route.ts
     ║    ║    ║    ╚══ secure
     ║    ║    ║    ║    ╚══ route.ts
-    ║    ║    ╠══ layout.tsx
-    ║    ║    ╠══ page.tsx
-    ║    ║    ╠══ globals.css
-    ║    ║    ╚══ favicon.ico
+    ║    ╠══ enum/
+    ║    ║    ╠══ method.fetch.ts
+    ║    ║    ╚══ index.ts
+    ║    ╠══ components/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ types/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ QueryArgs.ts
+    ║    ╠══ styles/
+    ║    ║    ╚══ tw.css
     ║    ╠══ lib/
     ║    ║    ╠══ index.ts
     ║    ║    ╠══ redux/
+    ║    ║    ║    ╠══ hooks/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ slice/
+    ║    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ║    ╚══ user
+    ║    ║    ║    ║    ║    ╠══ user.types.ts
+    ║    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ config/
+    ║    ║    ║    ║    ╚══ index.ts
     ║    ║    ║    ╠══ store/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ╠══ reducer/
     ║    ║    ║    ║    ╚══ index.ts
     ║    ║    ║    ╠══ api/
     ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ reducer/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ middleware/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ config/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ slice/
-    ║    ║    ║    ║    ╠══ user/
-    ║    ║    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ║    ║    ╚══ user.types.ts
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ╚══ hooks
+    ║    ║    ║    ╚══ middleware
     ║    ║    ║    ║    ╚══ index.ts
     ║    ║    ╚══ nextAuth
     ║    ║    ║    ╠══ options/
     ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ╚══ auth
+    ║    ║    ║    ╠══ auth/
     ║    ║    ║    ║    ╚══ index.ts
-    ║    ╚══ service
-    ║    ║    ╠══ customFetch/
-    ║    ║    ║    ╠══ SERVER.ts
-    ║    ║    ║    ╠══ fetch.types.ts
-    ║    ║    ║    ╠══ API.ts
     ║    ║    ║    ╚══ index.ts
+    ║    ╠══ providers/
+    ║    ║    ╠══ nextUI.provider.tsx
+    ║    ║    ╠══ nextAuth.privider.tsx
+    ║    ║    ╠══ redux.provider.tsx
+    ║    ║    ╚══ index.tsx
+    ║    ╠══ screens/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ Home
+    ║    ║    ║    ╚══ index.tsx
+    ║    ╠══ constants/
     ║    ║    ╚══ index.ts
-    ╠══ tailwind.config.ts
-    ╠══ public/
-    ║    ╠══ vercel.svg
-    ║    ╚══ next.svg
-    ╠══ .env
-    ╠══ README.md
-    ╠══ next.config.mjs
-    ╠══ package.json
+    ║    ╠══ functions/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ createQueryStrings.ts
+    ║    ╠══ errors/
+    ║    ║    ╚══ index.ts
+    ║    ╚══ utils
+    ║    ║    ╚══ index.ts
+    ╠══ .gitignore
     ╠══ .npmrc
-    ╠══ LICENSE
     ╠══ pnpm-lock.yaml
-    ╠══ tsconfig.json
-    ╠══ postcss.config.mjs
-    ╠══ .eslintrc.json
-    ╚══ .gitignore
+    ╚══ postcss.config.mjs
 
 ## Author
 
