@@ -11,14 +11,14 @@ import {
   UPDATE_AGE_SESSION,
   secretKey,
 } from "@/constants";
-import { getCustomProvider, jwtCallback, sessionCallback } from "../auth";
+import { jwtCallback, sessionCallback } from "../auth";
 
 export const authOptions: AuthOptions = {
   secret: secretKey,
   /**
    * TODO - Add your preferred provider
    */
-  providers: [getCustomProvider()],
+  providers: [],
 
   callbacks: {
     jwt: jwtCallback,
