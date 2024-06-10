@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ReactNode } from "react";
-import { Toaster } from "react-hot-toast";
 import { twMerge } from "tailwind-merge";
 
-import { DURATION_TOAST, FULL_Z_INDEX } from "@/constants";
 import { auth } from "@/lib";
 import { Providers } from "@/providers";
 import "./globals.css";
@@ -19,42 +16,14 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: ReactNode;
+  children: React.ReactNode;
 }>) {
   const bodyClassName = twMerge("max-w-screen", inter.className);
   const userLogged = await auth();
   return (
     <html lang="pt-BR">
       <body className={bodyClassName}>
-        <Providers userLogged={userLogged?.user}>
-          <Toaster
-            position="top-center"
-            reverseOrder={false}
-            toastOptions={{
-              style: {
-                zIndex: FULL_Z_INDEX,
-              },
-              success: {
-                duration: DURATION_TOAST,
-                style: {
-                  zIndex: FULL_Z_INDEX,
-                },
-              },
-              error: {
-                duration: DURATION_TOAST,
-                style: {
-                  zIndex: FULL_Z_INDEX,
-                },
-              },
-              loading: {
-                style: {
-                  zIndex: FULL_Z_INDEX,
-                },
-              },
-            }}
-          />
-          {children}
-        </Providers>
+        <Providers userLogged={userLogged?.user}>{children}</Providers>
       </body>
     </html>
   );
