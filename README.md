@@ -17,6 +17,10 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
     - [Build Project](#build-project)
     - [Start Production Server](#start-production-server)
   - [Tailwind CSS Configuration](#tailwind-css-configuration)
+  - [RTK Query](#rtk-query)
+    - [API Service Definition](#api-service-definition)
+    - [Examples](#examples)
+    - [Using RTK Query](#using-rtk-query)
   - [Contributing](#contributing)
   - [License](#license)
   - [Folder Structure](#folder-structure)
@@ -24,9 +28,51 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
 
 ## Dependencies
 
+### Core Dependencies
+
 - [Next.js 14](https://nextjs.org/)
+- [React 18](https://reactjs.org/)
+- [ReactDOM 18](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+
+### Styling
+
 - [Tailwind CSS](https://tailwindcss.com/)
+- [tailwind-merge](https://github.com/dcastil/tailwind-merge) - Utility to combine Tailwind CSS classes
+
+### State Management and Data Fetching
+
+- [@reduxjs/toolkit](https://redux-toolkit.js.org/)
+- [react-redux](https://react-redux.js.org/)
+- [reselect](https://github.com/reduxjs/reselect) - Selector library for Redux
+
+### UI Components
+
+- [@nextui-org/react](https://nextui.org/) - React UI library
+- [framer-motion](https://www.framer.com/motion/) - Animation library for React
+- [react-hot-toast](https://react-hot-toast.com/) - Notification library for React
+
+### Internationalization
+
+- [@react-aria/i18n](https://react-spectrum.adobe.com/react-aria/useLocale.html) - Internationalization utilities
+
+### Authentication
+
+- [next-auth](https://next-auth.js.org/) - Authentication library for Next.js
+
+### Other Utilities
+
+- [next-nprogress-bar](https://github.com/apal21/next-nprogress-bar) - Progress bar for Next.js
+
+### Development Dependencies
+
+- [eslint](https://eslint.org/) - Linter for JavaScript and TypeScript
+- [eslint-config-next](https://nextjs.org/docs/basic-features/eslint) - ESLint configuration for Next.js
+- [postcss](https://postcss.org/) - Tool for transforming CSS
+- [typescript](https://www.typescriptlang.org/) - TypeScript language
+- [@types/node](https://www.npmjs.com/package/@types/node) - Type definitions for Node.js
+- [@types/react](https://www.npmjs.com/package/@types/react) - Type definitions for React
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom) - Type definitions for React DOM
 
 ## Installation
 
@@ -159,6 +205,102 @@ Starts the production server.
 The tailwind.config.js file contains Tailwind CSS configurations.
 To customize the styles, edit this file as needed.
 
+## RTK Query
+
+RTK Query is a powerful tool for managing asynchronous data in Redux applications. It simplifies data fetching and caching logic, making development more efficient.
+
+### API Service Definition
+
+Here's how to define an API service using RTK Query:
+
+[apiServiceRedux file of the redux api](https://github.com/samuelrms/nstart-project/blob/main/src/lib/redux/api/index.ts)
+
+```tsx
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { FETCH_OPTIONS } from "@/enum";
+import { QueryArgs } from "@/types";
+import { createSelector } from "@reduxjs/toolkit";
+import { RootState } from "../store";
+
+// Defining the API service
+export const apiServiceRedux = createApi({
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({ baseUrl: "/api/" }),
+  endpoints: (builder) => ({
+    dynamicQuery: builder.query<unknown, QueryArgs>({
+      query: ({ path, method = FETCH_OPTIONS.GET, params, body }) => ({
+        url: path,
+        method,
+        params,
+        body: body ? JSON.stringify(body) : undefined,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }),
+    }),
+  }),
+});
+
+// Hooks to use API endpoints
+export const { useDynamicQueryQuery: useDynamicQuery } = apiServiceRedux;
+
+// Selectors for query results
+export const selectDynamicQueryResult = (args: {
+  path: string;
+  method?: FETCH_OPTIONS;
+}) =>
+  createSelector(
+    (state: RootState) =>
+      apiServiceRedux.endpoints.dynamicQuery.select({
+        path: args.path,
+        method: args.method,
+      })(state),
+    (queryResult) => queryResult
+  );
+```
+
+### Examples
+
+### Using RTK Query
+
+Here's an example of how to use RTK Query in your project:
+
+```tsx
+import {
+  RootState,
+  selectDynamicQueryResult,
+  useAppSelector,
+  useDynamicQuery,
+} from "@/lib";
+
+const MyComponent: React.FC = () => {
+  // Perform the query
+  const { data, error, isLoading } = useDynamicQuery({
+    path: "public",
+  });
+
+  // Select the query result from the state
+  const selectQueryState = selectDynamicQueryResult({
+    path: "public",
+  });
+
+  const queryState = useAppSelector((state: RootState) =>
+    selectQueryState(state)
+  );
+
+  return (
+    <div>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && <p>Data: {JSON.stringify(data)}</p>}
+      <p>Query State: {JSON.stringify(queryState)}</p>
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
 ## Contributing
 
 Feel free to contribute to this project.
@@ -175,10 +317,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     ║    ╠══ constants/
     ║    ║    ╚══ index.ts
     ║    ╠══ functions/
-    ║    ║    ╠══ createQueryStrings.ts  
+    ║    ║    ╠══ createQueryStrings.ts
     ║    ║    ╚══ index.ts
     ║    ╠══ screens/
-    ║    ║    ╠══ index.ts  
+    ║    ║    ╠══ index.ts
     ║    ║    ╚══ Home
     ║    ║    ║    ╚══ index.tsx
     ║    ╠══ errors/
@@ -186,19 +328,19 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     ║    ╠══ mocks/
     ║    ║    ╚══ index.ts
     ║    ╠══ types/
-    ║    ║    ╠══ QueryArgs.ts  
+    ║    ║    ╠══ QueryArgs.ts
     ║    ║    ╚══ index.ts
     ║    ╠══ schema/
     ║    ║    ╚══ index.ts
     ║    ╠══ utils/
     ║    ║    ╚══ index.ts
     ║    ╠══ enum/
-    ║    ║    ╠══ index.ts  
+    ║    ║    ╠══ index.ts
     ║    ║    ╚══ method.fetch.ts
     ║    ╠══ providers/
-    ║    ║    ╠══ index.tsx  
-    ║    ║    ╠══ nextUI.provider.tsx  
-    ║    ║    ╠══ nextAuth.privider.tsx  
+    ║    ║    ╠══ index.tsx
+    ║    ║    ╠══ nextUI.provider.tsx
+    ║    ║    ╠══ nextAuth.privider.tsx
     ║    ║    ╚══ redux.provider.tsx
     ║    ╠══ components/
     ║    ║    ╚══ index.ts
@@ -211,12 +353,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     ║    ║    ║    ║    ║    ╚══ route.ts
     ║    ║    ║    ╚══ secure
     ║    ║    ║    ║    ╚══ route.ts
-    ║    ║    ╠══ layout.tsx  
-    ║    ║    ╠══ page.tsx  
-    ║    ║    ╠══ globals.css  
+    ║    ║    ╠══ layout.tsx
+    ║    ║    ╠══ page.tsx
+    ║    ║    ╠══ globals.css
     ║    ║    ╚══ favicon.ico
     ║    ╠══ lib/
-    ║    ║    ╠══ index.ts  
+    ║    ║    ╠══ index.ts
     ║    ║    ╠══ redux/
     ║    ║    ║    ╠══ store/
     ║    ║    ║    ║    ╚══ index.ts
@@ -230,41 +372,40 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     ║    ║    ║    ║    ╚══ index.ts
     ║    ║    ║    ╠══ slice/
     ║    ║    ║    ║    ╠══ user/
-    ║    ║    ║    ║    ║    ╠══ index.ts  
+    ║    ║    ║    ║    ║    ╠══ index.ts
     ║    ║    ║    ║    ║    ╚══ user.types.ts
     ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ index.ts  
+    ║    ║    ║    ╠══ index.ts
     ║    ║    ║    ╚══ hooks
     ║    ║    ║    ║    ╚══ index.ts
     ║    ║    ╚══ nextAuth
     ║    ║    ║    ╠══ options/
     ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ index.ts  
+    ║    ║    ║    ╠══ index.ts
     ║    ║    ║    ╚══ auth
     ║    ║    ║    ║    ╚══ index.ts
     ║    ╚══ service
     ║    ║    ╠══ customFetch/
-    ║    ║    ║    ╠══ SERVER.ts  
-    ║    ║    ║    ╠══ fetch.types.ts  
-    ║    ║    ║    ╠══ API.ts  
+    ║    ║    ║    ╠══ SERVER.ts
+    ║    ║    ║    ╠══ fetch.types.ts
+    ║    ║    ║    ╠══ API.ts
     ║    ║    ║    ╚══ index.ts
     ║    ║    ╚══ index.ts
-    ╠══ tailwind.config.ts  
+    ╠══ tailwind.config.ts
     ╠══ public/
-    ║    ╠══ vercel.svg  
+    ║    ╠══ vercel.svg
     ║    ╚══ next.svg
-    ╠══ .env  
-    ╠══ README.md  
-    ╠══ next.config.mjs  
-    ╠══ package.json  
-    ╠══ .npmrc  
-    ╠══ LICENSE  
-    ╠══ pnpm-lock.yaml  
-    ╠══ tsconfig.json  
-    ╠══ postcss.config.mjs  
-    ╠══ .eslintrc.json  
+    ╠══ .env
+    ╠══ README.md
+    ╠══ next.config.mjs
+    ╠══ package.json
+    ╠══ .npmrc
+    ╠══ LICENSE
+    ╠══ pnpm-lock.yaml
+    ╠══ tsconfig.json
+    ╠══ postcss.config.mjs
+    ╠══ .eslintrc.json
     ╚══ .gitignore
-
 
 ## Author
 
