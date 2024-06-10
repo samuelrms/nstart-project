@@ -148,7 +148,7 @@ This command uses _**create-next-app**_ to bootstrap a new Next.js application u
 
 Both commands are run using _**npx**_, which is a package runner tool that comes with _**npm**_. It allows you to run packages without having to install them globally first. <YOUR_APP_NAME> should be replaced with the name you want for your new project.
 
-Remember to navigate into your new project directory with cd <YOUR\*APP*NAME> before starting the development server with**\*npm run dev***, _**yarn dev**_ or \_**pnpm dev**\_. Enjoy coding! 😊
+Remember to navigate into your new project directory with cd <YOUR\*APP\*NAME> before starting the development server with**\*npm run dev\***, _**yarn dev**_ or \_**pnpm dev**\_. Enjoy coding! 😊
 
 ## Available Scripts
 
@@ -428,6 +428,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
     ╠══ .npmrc
     ╠══ pnpm-lock.yaml
     ╚══ postcss.config.mjs
+
+# _**Enjoying the project? Show your support by giving it a star! ✨**_
 
 ## Author
 
