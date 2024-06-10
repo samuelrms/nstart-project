@@ -20,6 +20,19 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
     - [API Service Definition](#api-service-definition)
     - [Examples](#examples)
     - [Using RTK Query](#using-rtk-query)
+  - [Components](#components)
+    - [Stack](#stack)
+      - [Props Stack](#props-stack)
+      - [Usage Stack](#usage-stack)
+    - [Active Link](#active-link)
+      - [Props Active Link](#props-active-link)
+      - [Usage Active Link](#usage-active-link)
+    - [Text](#text)
+      - [Props Text](#props-text)
+      - [Usage Text](#usage-text)
+    - [Breadcrumb](#breadcrumb)
+      - [Props Breadcrumb](#props-breadcrumb)
+      - [Usage Breadcrumb](#usage-breadcrumb)
   - [Contributing](#contributing)
   - [License](#license)
   - [Folder Structure](#folder-structure)
@@ -320,6 +333,108 @@ const MyComponent: React.FC = () => {
 };
 
 export default MyComponent;
+```
+
+## Components
+
+### Stack
+
+The _**Stack**_ component is a flexible utility component built with React. It allows you to create an HTML element of your choice and pass any number of HTML attributes to it.
+
+#### Props Stack
+
+The _**Stack**_ component accepts the following props:
+
+- _**elementType**_: This is an optional type that can be any valid key of _**"ReactHTML"**_. If not provided, the default value will be _**"div"**_.
+- _**children**_: This is the content that will be rendered within the created element.
+- _**className**_: This is an optional string that can be used to add CSS classes to the element.
+- _**...props**_: Any other valid HTML attribute can be passed to the component.
+
+#### Usage Stack
+
+Here's an example of how to use the _**Stack**_ component:
+
+```tsx
+<Stack elementType="section" className="my-class">
+  <p>This is an example of using the Stack component.</p>
+</Stack>
+```
+
+### Active Link
+
+The _**Active Link**_ component is a custom Link component built with Next.js. It is designed to provide an active state for navigation links, making it easier for users to understand their current location within the application.
+
+#### Props Active Link
+
+The _**Active Link**_ component accepts the following props:
+
+- _**href**_: This is a required string that represents the path of the link.
+- _**includes**_: This is an optional boolean that, when true, checks if the current path includes the _**href**_ value.
+- _**children**_: This is the content that will be rendered within the link.
+- _**...props**_: Any other valid Link attribute can be passed to the component.
+
+#### Usage Active Link
+
+Here's an example of how to use the _**Active Link**_ component:
+
+```tsx
+"use client"
+
+<ActiveLink href="/home" includes={true}>
+  Home
+</ActiveLink>
+```
+
+### Text
+
+The _**Text**_ component is a flexible text rendering component built with React. It allows you to create a text element of your choice and pass any number of HTML attributes to it.
+
+#### Props Text
+
+The _**Text**_ component accepts the following props:
+
+- _**elementType**_: This is an optional type that can be _**"p"**_, _**"h1"**_, _**"h2"**_, _**"h3"**_, _**"h4"**_, _**"h5"**_, _**"h6"**_, or _**"span"**_. If not provided, the default value will be _**"p"**_.
+- _**children**_: This is the content that will be rendered within the created element.
+- _**className**_: This is an optional string that can be used to add CSS classes to the element.
+- _**...props**_: Any other valid HTML attribute can be passed to the component.
+
+#### Usage Text
+
+Here's an example of how to use the _**Text**_ component:
+
+```tsx
+<Text elementType="h1" className="my-class">
+  This is an example of using the Text component.
+</Text>
+```
+
+### Breadcrumb
+
+The _**Breadcrumb**_ component is a custom navigation component built with Next.js and NextUI. It provides a navigational hierarchy of a website's pages to the user.
+
+#### Props Breadcrumb
+
+The _**Breadcrumb**_ component accepts the following props:
+
+- _**actions**_: This is an optional prop that can be used to pass additional actions to the component.
+- _**title**_: This is an optional string that represents the title of the page. If not provided, the page name will be used.
+- _**customName**_: This is an optional string that can be used to provide a custom name for the last item in the breadcrumb list.
+- _**...props**_: Any other valid attribute can be passed to the component.
+
+#### Usage Breadcrumb
+
+Here's an example of how to use the _**Breadcrumb**_ component:
+
+```tsx
+"use client"
+
+<Breadcrumb
+  title="Home"
+  customName="Custom Name"
+  action={
+    // Your Actions
+  }
+/>
 ```
 
 ## Contributing
