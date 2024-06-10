@@ -1,7 +1,5 @@
 # NStart Project
 
-🚨🚨 Project under construction 🚨🚨
-
 This is a starter template for projects using Next.js 14 with TypeScript and Tailwind CSS. It includes a basic folder structure to help you get started quickly.
 
 ## Table of Contents
@@ -150,7 +148,7 @@ This command uses _**create-next-app**_ to bootstrap a new Next.js application u
 
 Both commands are run using _**npx**_, which is a package runner tool that comes with _**npm**_. It allows you to run packages without having to install them globally first. <YOUR_APP_NAME> should be replaced with the name you want for your new project.
 
-Remember to navigate into your new project directory with cd <YOUR_APP_NAME> before starting the development server with _**npm run dev**_, _**yarn dev**_ or _**pnpm dev**_. Enjoy coding! 😊
+Remember to navigate into your new project directory with cd <YOUR*APP_NAME> before starting the development server with ***npm run dev**_, _**yarn dev**_ or _**pnpm dev**\_. Enjoy coding! 😊
 
 ## Available Scripts
 
