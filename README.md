@@ -12,6 +12,7 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
   - [Installation](#installation)
     - [Prerequisites](#prerequisites)
     - [Installation Steps](#installation-steps)
+    - [Use this template](#use-this-template)
   - [Available Scripts](#available-scripts)
     - [Start Project](#start-project)
     - [Build Project](#build-project)
@@ -128,6 +129,28 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
    ```bash
    pnpm i
    ```
+
+### Use this template
+
+This template is designed to be used with the following commands:
+
+```bash
+npx degit samuelrms/nstart-project <YOUR_APP_NAME>
+```
+
+This command uses degit to directly clone the nstart-project from the GitHub repository of samuelrms into a new directory named <YOUR_APP_NAME>. degit is a scaffolding tool that lets you create a new project straight from a git repository.
+
+or
+
+```bash
+npx create-next-app --example https://github.com/samuelrms/nstart-project <YOUR_APP_NAME>
+```
+
+This command uses _**create-next-app**_ to bootstrap a new Next.js application using the _**nstart-project**_ from the GitHub repository of _**samuelrms**_ as a template. The new application will be created in a new directory named <YOUR_APP_NAME>. create-next-app is an official tool from the Next.js team for quickly starting new projects.
+
+Both commands are run using _**npx**_, which is a package runner tool that comes with _**npm**_. It allows you to run packages without having to install them globally first. <YOUR_APP_NAME> should be replaced with the name you want for your new project.
+
+Remember to navigate into your new project directory with cd <YOUR_APP_NAME> before starting the development server with _**npm run dev**_, _**yarn dev**_ or _**pnpm dev**_. Enjoy coding! 😊
 
 ## Available Scripts
 
