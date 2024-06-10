@@ -111,22 +111,22 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
 
 3. Install the dependencies:
 
-   1. If you are using `npm` as your package manager, you can install it by running the following command in your terminal:
+   1. If you are using **_npm_** as your package manager, you can install it by running the following command in your terminal:
 
    ```bash
-    npm i next-otp
+    npm i
    ```
 
-   2. If you are using `yarn` as your package manager, you can install it by running the following command in your terminal:
+   2. If you are using **_yarn_** as your package manager, you can install it by running the following command in your terminal:
 
    ```bash
-    yarn i next-otp
+    yarn
    ```
 
-   3. If you are using `pnpm` as your package manager, you can install it by running the following command in your terminal:
+   3. If you are using **_pnpm_** as your package manager, you can install it by running the following command in your terminal:
 
    ```bash
-   pnpm add next-otp
+   pnpm i
    ```
 
 ## Available Scripts
