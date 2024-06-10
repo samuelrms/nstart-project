@@ -1,7 +1,12 @@
-import { FETCH_OPTIONS } from "@/enum";
-import { fetchAPI } from "@/service";
 import { CallbacksOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+
+export type User = {
+  username: string;
+  password: string;
+  id: string;
+  // any other properties a user might have...
+};
 
 export const getCustomProvider = () => {
   return CredentialsProvider({
@@ -11,23 +16,17 @@ export const getCustomProvider = () => {
       password: { label: "Password", type: "password" },
     },
     authorize: async (credentials) => {
-      const params = {
-        login: credentials?.username,
-        password: credentials?.password,
-      };
-
-      const { data, error } = await fetchAPI({
-        method: FETCH_OPTIONS.POST,
-        path: "/auth/login",
-        bodyRequest: JSON.stringify(params),
-      });
-
-      if (error) {
-        console.error("Login error:", error);
-        return null;
+      if (credentials) {
+        // Fetch or create a user based on the credentials
+        const user: User = {
+          id: "some-id", // You need to provide a valid id here
+          username: credentials.username,
+          password: credentials.password,
+          // any other properties a user might have...
+        };
+        return user;
       }
-
-      return data as any;
+      return null;
     },
   });
 };
