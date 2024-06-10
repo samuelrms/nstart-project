@@ -171,73 +171,100 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Folder Structure
 
     .
-    ╠══ .env
-    ╠══ next.config.mjs
-    ╠══ postcss.config.mjs
-    ╠══ LICENSE
-    ╠══ pnpm-lock.yaml
-    ╠══ tailwind.config.ts
-    ╠══ tsconfig.json
-    ╠══ .eslintrc.json
+    ╠══ src/
+    ║    ╠══ constants/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ functions/
+    ║    ║    ╠══ createQueryStrings.ts  
+    ║    ║    ╚══ index.ts
+    ║    ╠══ screens/
+    ║    ║    ╠══ index.ts  
+    ║    ║    ╚══ Home
+    ║    ║    ║    ╚══ index.tsx
+    ║    ╠══ errors/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ mocks/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ types/
+    ║    ║    ╠══ QueryArgs.ts  
+    ║    ║    ╚══ index.ts
+    ║    ╠══ schema/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ utils/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ enum/
+    ║    ║    ╠══ index.ts  
+    ║    ║    ╚══ method.fetch.ts
+    ║    ╠══ providers/
+    ║    ║    ╠══ index.tsx  
+    ║    ║    ╠══ nextUI.provider.tsx  
+    ║    ║    ╠══ nextAuth.privider.tsx  
+    ║    ║    ╚══ redux.provider.tsx
+    ║    ╠══ components/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ app/
+    ║    ║    ╠══ api/
+    ║    ║    ║    ╠══ public/
+    ║    ║    ║    ║    ╚══ route.ts
+    ║    ║    ║    ╠══ auth/
+    ║    ║    ║    ║    ╚══ [...nextauth]
+    ║    ║    ║    ║    ║    ╚══ route.ts
+    ║    ║    ║    ╚══ secure
+    ║    ║    ║    ║    ╚══ route.ts
+    ║    ║    ╠══ layout.tsx  
+    ║    ║    ╠══ page.tsx  
+    ║    ║    ╠══ globals.css  
+    ║    ║    ╚══ favicon.ico
+    ║    ╠══ lib/
+    ║    ║    ╠══ index.ts  
+    ║    ║    ╠══ redux/
+    ║    ║    ║    ╠══ store/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ api/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ reducer/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ middleware/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ config/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ slice/
+    ║    ║    ║    ║    ╠══ user/
+    ║    ║    ║    ║    ║    ╠══ index.ts  
+    ║    ║    ║    ║    ║    ╚══ user.types.ts
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ index.ts  
+    ║    ║    ║    ╚══ hooks
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ╚══ nextAuth
+    ║    ║    ║    ╠══ options/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ index.ts  
+    ║    ║    ║    ╚══ auth
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ╚══ service
+    ║    ║    ╠══ customFetch/
+    ║    ║    ║    ╠══ SERVER.ts  
+    ║    ║    ║    ╠══ fetch.types.ts  
+    ║    ║    ║    ╠══ API.ts  
+    ║    ║    ║    ╚══ index.ts
+    ║    ║    ╚══ index.ts
+    ╠══ tailwind.config.ts  
     ╠══ public/
-    ║    ╠══ vercel.svg
+    ║    ╠══ vercel.svg  
     ║    ╚══ next.svg
-    ╠══ README.md
-    ╠══ .gitignore
-    ╠══ package.json
-    ╚══ src
-         ╠══ components/
-         ║    ╚══ index.ts
-         ╠══ errors/
-         ║    ╚══ index.ts
-         ╠══ app/
-         ║    ╠══ layout.tsx
-         ║    ╠══ favicon.ico
-         ║    ╠══ api/
-         ║    ║    ╠══ auth/
-         ║    ║    ║    ╚══ [...nextauth]
-         ║    ║    ║         ╚══ route.ts
-         ║    ║    ╠══ public/
-         ║    ║    ║    ╚══ route.ts
-         ║    ║    ╚══ secure
-         ║    ║         ╚══ route.ts
-         ║    ╠══ page.tsx
-         ║    ╚══ globals.css
-         ╠══ providers/
-         ║    ╚══ index.ts
-         ╠══ service/
-         ║    ╠══ index.ts
-         ║    ╚══ customFetch
-         ║         ╠══ API.ts
-         ║         ╠══ fetch.types.ts
-         ║         ╠══ SERVER.ts
-         ║         ╚══ index.ts
-         ╠══ mocks/
-         ║    ╚══ index.ts
-         ╠══ lib/
-         ║    ╠══ nextAuth/
-         ║    ║    ╠══ options/
-         ║    ║    ║    ╚══ index.ts
-         ║    ║    ╠══ auth/
-         ║    ║    ║    ╚══ index.ts
-         ║    ║    ╚══ index.ts
-         ║    ╚══ index.ts
-         ╠══ utils/
-         ║    ╚══ index.ts
-         ╠══ constants/
-         ║    ╚══ index.ts
-         ╠══ types/
-         ║    ╚══ index.ts
-         ╠══ schema/
-         ║    ╚══ index.ts
-         ╠══ enum/
-         ║    ╠══ method.fetch.ts
-         ║    ╚══ index.ts
-         ╠══ screens/
-         ║    ╚══ index.ts
-         ╚══ functions
-              ╠══ createQueryStrings.ts
-              ╚══ index.ts
+    ╠══ .env  
+    ╠══ README.md  
+    ╠══ next.config.mjs  
+    ╠══ package.json  
+    ╠══ .npmrc  
+    ╠══ LICENSE  
+    ╠══ pnpm-lock.yaml  
+    ╠══ tsconfig.json  
+    ╠══ postcss.config.mjs  
+    ╠══ .eslintrc.json  
+    ╚══ .gitignore
+
 
 ## Author
 
