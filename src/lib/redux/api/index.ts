@@ -7,7 +7,7 @@ import { RootState } from "../store";
 
 export const apiServiceRedux = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "/api/" }),
   endpoints: (builder) => ({
     dynamicQuery: builder.query<unknown, QueryArgs>({
       query: ({ path, method = FETCH_OPTIONS.GET, params, body }) => ({
