@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 
 import { auth } from "@/lib";
 import { Providers } from "@/providers";
-import "./globals.css";
+import "@/styles/tw.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const bodyClassName = twMerge("max-w-screen", inter.className);
+  const bodyClassName = twMerge(
+    "max-w-screen bg-black text-white",
+    inter.className
+  );
   const userLogged = await auth();
   return (
     <html lang="pt-BR">
