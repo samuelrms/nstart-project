@@ -1,5 +1,7 @@
 # NStart Project
 
+![nproject](https://github.com/samuelrms/nstart-project/assets/92615688/71d8e468-a4a9-4de6-9478-920dde8f3eff)
+
 This is a starter template for projects using Next.js 14 with TypeScript and Tailwind CSS. It includes a basic folder structure to help you get started quickly.
 
 ## Table of Contents
