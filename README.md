@@ -35,6 +35,9 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
     - [Breadcrumb](#breadcrumb)
       - [Props Breadcrumb](#props-breadcrumb)
       - [Usage Breadcrumb](#usage-breadcrumb)
+    - [OTP](#otp)
+      - [Props OTP](#props-otp)
+      - [Usage OTP](#usage-otp)
   - [Contributing](#contributing)
   - [License](#license)
   - [Folder Structure](#folder-structure)
@@ -441,6 +444,41 @@ Here's an example of how to use the _**Breadcrumb**_ component:
 />
 ```
 
+### OTP
+
+The _**OTP**_ component is a custom input component built with Next.js and Tailwind CSS. It allows the entry of a One-Time Password (OTP) through multiple input fields.
+
+#### Props OTP
+
+The _**OTP**_ component accepts the following props:
+
+- _**length**_: Number of characters accepted by the OTP. The default is 6.
+- _**onComplete**_: Callback function called when the OTP is filled.
+- _**inputHeight**_: Defines the height of the input. Refer to _Height_ for possible values and their corresponding sizes. The default is "h-12".
+- _**inputWidth**_: Defines the width of the input. Refer to _Width_ for possible values and their corresponding sizes. The default is "w-12".
+- _**spacing**_: Defines the spacing between the inputs. Refer to _Spacing_ for possible values and their corresponding sizes. The default is "gap-4".
+- _**bg**_: Background color of the input in Tailwind format. The default is "bg-white".
+- _**fontColor**_: Font color of the input in Tailwind format. The default is "text-black".
+- _**...inputProps**_: Any other valid attributes can be passed to the input element.
+
+#### Usage OTP
+
+Here's an example of how to use the _**OTP**_ component:
+
+```tsx
+"use client"
+
+<OTP
+  length={6}
+  onComplete={(otp) => console.log(otp)}
+  inputHeight="h-12"
+  inputWidth="w-12"
+  spacing="gap-4"
+  bg="bg-white"
+  fontColor="text-black"
+/>
+```
+
 ## Contributing
 
 Feel free to contribute to this project.
@@ -450,118 +488,124 @@ To get started, you can open an `issue` or submit a pull request.
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Folder Structure
-
     .
-    ╠══ postcss.config.mjs
-    ╠══ public/
-    ║    ╠══ next.svg
-    ║    ╚══ vercel.svg
-    ╠══ tsconfig.json
-    ╠══ README.md
     ╠══ .env
+    ╠══ .eslintrc.json
+    ╠══ .npmrc
+    ╠══ postcss.config.mjs
+    ╠══ next.config.mjs
+    ╠══ README.md
+    ╠══ tailwind.config.ts
+    ╠══ tsconfig.json
+    ╠══ public/
+    ║    ╠══ vercel.svg
+    ║    ╚══ next.svg
     ╠══ package.json
-    ╠══ pnpm-lock.yaml
     ╠══ src/
+    ║    ╠══ constants/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ mocks/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ schema/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ styles/
+    ║    ║    ╚══ tw.css
+    ║    ╠══ screens/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ Home
+    ║    ║    ║    ╚══ index.tsx
+    ║    ╠══ lib/
+    ║    ║    ╠══ redux/
+    ║    ║    ║    ╠══ reducer/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ╠══ middleware/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ hooks/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ store/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ config/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ slice/
+    ║    ║    ║    ║    ╠══ user/
+    ║    ║    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ║    ║    ╚══ user.types.ts
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╚══ api
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ nextAuth
+    ║    ║    ║    ╠══ auth/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ╚══ options
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ╠══ hooks/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ useNavigationList
+    ║    ║    ║    ╠══ useNavigationList.types.ts
+    ║    ║    ║    ╚══ index.tsx
+    ║    ╠══ service/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ customFetch
+    ║    ║    ║    ╠══ fetch.types.ts
+    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ╠══ SERVER.ts
+    ║    ║    ║    ╚══ API.ts
+    ║    ╠══ functions/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ createQueryStrings.ts
+    ║    ╠══ types/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ QueryArgs.ts
+    ║    ╠══ components/
+    ║    ║    ╠══ Stack/
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╠══ Breadcrumb/
+    ║    ║    ║    ╠══ Breadcrumb.types.ts
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╠══ ActiveLink/
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╠══ index.ts
+    ║    ║    ╠══ OTP/
+    ║    ║    ║    ╠══ OTP.types.ts
+    ║    ║    ║    ╠══ index.tsx
+    ║    ║    ║    ╚══ enum
+    ║    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ║    ╠══ height.ts
+    ║    ║    ║    ║    ╠══ width.ts
+    ║    ║    ║    ║    ╚══ spacing.ts
+    ║    ║    ╚══ Text
+    ║    ║    ║    ╚══ index.ts
+    ║    ╠══ app/
+    ║    ║    ╠══ api/
+    ║    ║    ║    ╠══ auth/
+    ║    ║    ║    ║    ╚══ [...nextauth]
+    ║    ║    ║    ║    ║    ╚══ route.ts
+    ║    ║    ║    ╠══ secure/
+    ║    ║    ║    ║    ╚══ route.ts
+    ║    ║    ║    ╚══ public
+    ║    ║    ║    ║    ╚══ route.ts
+    ║    ║    ╠══ favicon.ico
+    ║    ║    ╠══ page.tsx
+    ║    ║    ╚══ layout.tsx
     ║    ╠══ errors/
     ║    ║    ╚══ index.ts
     ║    ╠══ enum/
     ║    ║    ╠══ method.fetch.ts
     ║    ║    ╚══ index.ts
-    ║    ╠══ styles/
-    ║    ║    ╚══ tw.css
-    ║    ╠══ hooks/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ useNavigationList
-    ║    ║    ║    ╠══ index.tsx
-    ║    ║    ║    ╚══ useNavigationList.types.ts
-    ║    ╠══ app/
-    ║    ║    ╠══ layout.tsx
-    ║    ║    ╠══ api/
-    ║    ║    ║    ╠══ public/
-    ║    ║    ║    ║    ╚══ route.ts
-    ║    ║    ║    ╠══ secure/
-    ║    ║    ║    ║    ╚══ route.ts
-    ║    ║    ║    ╚══ auth
-    ║    ║    ║    ║    ╚══ [...nextauth]
-    ║    ║    ║    ║    ║    ╚══ route.ts
-    ║    ║    ╠══ favicon.ico
-    ║    ║    ╚══ page.tsx
-    ║    ╠══ types/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ QueryArgs.ts
-    ║    ╠══ components/
-    ║    ║    ╠══ Text/
-    ║    ║    ║    ╚══ index.ts
-    ║    ║    ╠══ ActiveLink/
-    ║    ║    ║    ╚══ index.tsx
-    ║    ║    ╠══ index.ts
-    ║    ║    ╠══ Breadcrumb/
-    ║    ║    ║    ╠══ Breadcrumb.types.ts
-    ║    ║    ║    ╚══ index.tsx
-    ║    ║    ╚══ Stack
-    ║    ║    ║    ╚══ index.tsx
-    ║    ╠══ providers/
-    ║    ║    ╠══ index.tsx
-    ║    ║    ╠══ nextUI.provider.tsx
-    ║    ║    ╠══ redux.provider.tsx
-    ║    ║    ╚══ nextAuth.privider.tsx
-    ║    ╠══ lib/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╠══ redux/
-    ║    ║    ║    ╠══ config/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ reducer/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ api/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ hooks/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ middleware/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ╠══ store/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╚══ slice
-    ║    ║    ║    ║    ╠══ user/
-    ║    ║    ║    ║    ║    ╠══ user.types.ts
-    ║    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ╚══ nextAuth
-    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ╠══ options/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╚══ auth
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ╠══ schema/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ functions/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ createQueryStrings.ts
-    ║    ╠══ screens/
-    ║    ║    ╠══ Home/
-    ║    ║    ║    ╚══ index.tsx
-    ║    ║    ╚══ index.ts
     ║    ╠══ utils/
-    ║    ║    ╠══ capitalizeWords.ts
-    ║    ║    ╚══ index.ts
-    ║    ╠══ constants/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ mocks/
-    ║    ║    ╚══ index.ts
-    ║    ╚══ service
-    ║    ║    ╠══ customFetch/
-    ║    ║    ║    ╠══ API.ts
-    ║    ║    ║    ╠══ fetch.types.ts
-    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ╚══ SERVER.ts
-    ║    ║    ╚══ index.ts
-    ╠══ .npmrc
-    ╠══ next.config.mjs
-    ╠══ tailwind.config.ts
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ capitalizeWords.ts
+    ║    ╚══ providers
+    ║    ║    ╠══ nextAuth.privider.tsx
+    ║    ║    ╠══ index.tsx
+    ║    ║    ╠══ redux.provider.tsx
+    ║    ║    ╚══ nextUI.provider.tsx
+    ╠══ LICENSE
     ╠══ .gitignore
-    ╠══ .eslintrc.json
-    ╚══ LICENSE
+    ╚══ pnpm-lock.yaml
 
 # _**Enjoying the project? Show your support by giving it a star! ✨**_
 
