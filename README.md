@@ -421,6 +421,7 @@ The _**Breadcrumb**_ component accepts the following props:
 - _**actions**_: This is an optional prop that can be used to pass additional actions to the component.
 - _**title**_: This is an optional string that represents the title of the page. If not provided, the page name will be used.
 - _**customName**_: This is an optional string that can be used to provide a custom name for the last item in the breadcrumb list.
+- _**overrideNames**_: Overwrites the names of the routes in the breadcrumb, starting from the number zero, if not overwritten the default name will be kept.
 - _**...props**_: Any other valid attribute can be passed to the component.
 
 #### Usage Breadcrumb
@@ -436,6 +437,7 @@ Here's an example of how to use the _**Breadcrumb**_ component:
   action={
     // Your Actions
   }
+  overrideNames={{ 0: "rootRoute" }}
 />
 ```
 
