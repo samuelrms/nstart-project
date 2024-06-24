@@ -10,6 +10,7 @@ export const Breadcrumb = ({
   actions,
   title,
   customName,
+  overrideNames,
   ...props
 }: BreadcrumbTypes) => {
   const { list, pageName } = useNavigationList();
@@ -21,7 +22,12 @@ export const Breadcrumb = ({
       <div className="mt-5 flex flex-1 items-center justify-between">
         <Breadcrumbs>
           {list.map((item, index) => {
-            const name = decodeURIComponent(item.name).replace(/-/g, " ");
+            let name = decodeURIComponent(item.name).replace(/-/g, " ");
+            if (overrideNames) {
+              if (overrideNames.hasOwnProperty(index)) {
+                name = overrideNames[index]!;
+              }
+            }
             const isDisabled = index === 0;
             const renderLink = !isDisabled && index !== list.length - 1;
             const isLastItem = index === list.length - 1;
