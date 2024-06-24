@@ -9,4 +9,12 @@ export type BreadcrumbTypes = {
    * @default True
    */
   isTitleInRoute?: boolean;
+
+  /**
+   * @description - Overwrites the names of the routes in the breadcrumb,
+   * starting from the number zero,
+   * if not overwritten the default name will be kept
+   * @example <Breadcrumb overrideNames={{ 0: "rootRoute" }} />
+   */
+  overrideNames?: { [key: number]: string };
 } & Partial<BreadcrumbItemProps>;
