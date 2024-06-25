@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import { NextAuthProvider } from "./nextAuth.privider";
 import { NextUIProvider } from "./nextUI.provider";
 import { ReduxProvider } from "./redux.provider";
+import { ThemeProvider } from "./theme.provider";
 
 export const Providers = ({
   children,
@@ -18,36 +19,38 @@ export const Providers = ({
     <NextAuthProvider>
       <NextUIProvider>
         <ReduxProvider userLogged={userLogged}>
-          <I18nProvider locale="pt-BR">
-            <Toaster
-              position="top-center"
-              reverseOrder={false}
-              toastOptions={{
-                style: {
-                  zIndex: FULL_Z_INDEX,
-                },
-                success: {
-                  duration: DURATION_TOAST,
+          <ThemeProvider>
+            <I18nProvider locale="pt-BR">
+              <Toaster
+                position="top-center"
+                reverseOrder={false}
+                toastOptions={{
                   style: {
                     zIndex: FULL_Z_INDEX,
                   },
-                },
-                error: {
-                  duration: DURATION_TOAST,
-                  style: {
-                    zIndex: FULL_Z_INDEX,
+                  success: {
+                    duration: DURATION_TOAST,
+                    style: {
+                      zIndex: FULL_Z_INDEX,
+                    },
                   },
-                },
-                loading: {
-                  style: {
-                    zIndex: FULL_Z_INDEX,
+                  error: {
+                    duration: DURATION_TOAST,
+                    style: {
+                      zIndex: FULL_Z_INDEX,
+                    },
                   },
-                },
-              }}
-            />
-            {children}
-            <AppProgressBar height="6px" color="#001F3D" shallowRouting />
-          </I18nProvider>
+                  loading: {
+                    style: {
+                      zIndex: FULL_Z_INDEX,
+                    },
+                  },
+                }}
+              />
+              {children}
+              <AppProgressBar height="6px" color="#001F3D" shallowRouting />
+            </I18nProvider>
+          </ThemeProvider>
         </ReduxProvider>
       </NextUIProvider>
     </NextAuthProvider>

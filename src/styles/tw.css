@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar {
+  @apply w-[6px];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary;
+}
+
+@layer components {
+  .container {
+    @apply px-8 flex items-start flex-col w-screen min-h-screen;
+  }
+}

@@ -1,5 +1,7 @@
 "use client";
 
+import { Stack, Text } from "@/components";
+import { Theme } from "@/components/Theme";
 import {
   RootState,
   selectDynamicQueryResult,
@@ -28,9 +30,18 @@ const Home = () => {
   console.log("Status stored in the request store", queryState);
 
   return (
-    <div>
-      <h2>Data from Store:</h2>
-      <pre>{JSON.stringify(queryState?.data, null, 2)}</pre>
+    <div className="container">
+      <Stack className="items-start flex-col p-8">
+        <Stack className="w-full flex justify-end">
+          <Theme />
+        </Stack>
+        <Stack>
+          <Text elementType="h2">Data from Store:</Text>
+          <Text elementType="pre">
+            {JSON.stringify(queryState?.data, null, 2)}
+          </Text>
+        </Stack>
+      </Stack>
     </div>
   );
 };

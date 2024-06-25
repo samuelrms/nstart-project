@@ -38,6 +38,15 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
     - [OTP](#otp)
       - [Props OTP](#props-otp)
       - [Usage OTP](#usage-otp)
+    - [Theme](#theme)
+      - [Props Theme](#props-theme)
+      - [Usage Theme](#usage-theme)
+    - [CustomInput](#custominput)
+      - [Props CustomInput](#props-custominput)
+      - [Usage CustomInput](#usage-custominput)
+    - [CustomSelect](#customselect)
+      - [Props CustomSelect](#props-customselect)
+      - [Usage CustomSelect](#usage-customselect)
   - [Contributing](#contributing)
   - [License](#license)
   - [Folder Structure](#folder-structure)
@@ -68,6 +77,7 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
 - [@nextui-org/react](https://nextui.org/) - React UI library
 - [framer-motion](https://www.framer.com/motion/) - Animation library for React
 - [react-hot-toast](https://react-hot-toast.com/) - Notification library for React
+- [react-icons](https://react-icons.github.io/react-icons) - Icon library for React
 
 ### Internationalization
 
@@ -80,6 +90,7 @@ This is a starter template for projects using Next.js 14 with TypeScript and Tai
 ### Other Utilities
 
 - [next-nprogress-bar](https://github.com/apal21/next-nprogress-bar) - Progress bar for Next.js
+- [next-themes](https://github.com/pacocoursey/next-themes) - Theme management for Next.js
 
 ### Development Dependencies
 
@@ -479,133 +490,223 @@ Here's an example of how to use the _**OTP**_ component:
 />
 ```
 
+### Theme
+
+The _**Theme**_ component is a custom theme switcher built with Next.js and NextUI. It allows users to toggle between light and dark themes.
+
+#### Props Theme
+
+The _**Theme**_ component accepts the following props:
+
+- _**hiddenTooltip**_: Boolean to hide or show the tooltip. The default is false.
+- _**lightThemeTextTooltip**_: String for the tooltip text when the light theme is active. The default is "Tema Claro".
+- _**darkThemeTextTooltip**_: String for the tooltip text when the dark theme is active. The default is "Tema Escuro".
+- [_**...props**_](https://nextui.org/docs/components/switch#api): Any other valid attributes can be passed to the Switch component from NextUI.
+
+#### Usage Theme
+
+Here's an example of how to use the _**Theme**_ component:
+
+```tsx
+"use client"
+
+<Theme
+  hiddenTooltip={false}
+  lightThemeTextTooltip="Light Theme"
+  darkThemeTextTooltip="Dark Theme"
+/>
+```
+
+### CustomInput
+
+The _**CustomInput**_ component is a custom input field built with Next.js and NextUI. It provides a styled input with a bordered variant and primary color.
+
+#### Props CustomInput
+
+The _**CustomInput**_ component accepts the following props:
+
+- [_**variant**_](https://nextui.org/docs/components/input#variants): The variant of the select dropdown. The default is "bordered".
+- [_**color**_](https://nextui.org/docs/components/input#colors): The color of the select dropdown. The default is "primary".
+- [_**...props**_](https://nextui.org/docs/components/input#api): Any other valid attributes can be passed to the Input component from NextUI.
+
+#### Usage CustomInput
+
+Here's an example of how to use the _**CustomInput**_ component:
+
+```tsx
+"use client"
+
+<CustomInput
+  placeholder="Enter text"
+  type="text"
+/>
+```
+
+### CustomSelect
+
+The _**CustomSelect**_ component is a custom select dropdown built with Next.js and NextUI. It provides a styled select dropdown with a bordered variant and primary color.
+
+#### Props CustomSelect
+
+The _**CustomSelect**_ component accepts the following props:
+
+- [_**variant**_](https://nextui.org/docs/components/select#variants): The variant of the select dropdown. The default is "bordered".
+- [_**color**_](https://nextui.org/docs/components/select#colors): The color of the select dropdown. The default is "primary".
+- [_**...props**_](https://nextui.org/docs/components/select#api): Any other valid attributes can be passed to the Select component from NextUI.
+
+#### Usage CustomSelect
+
+Here's an example of how to use the _**CustomSelect**_ component:
+
+```tsx
+"use client"
+
+<CustomSelect
+  placeholder="Select an option"
+  options={[
+    { label: "Option 1", value: "1" },
+    { label: "Option 2", value: "2" },
+  ]}
+/>
+```
+
 ## Contributing
 
 Feel free to contribute to this project.
-To get started, you can open an `issue` or submit a pull request.
+To get started, you can open an **_issue_** or submit a pull request.
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## Folder Structure
+
     .
-    ╠══ .env
-    ╠══ .eslintrc.json
-    ╠══ .npmrc
-    ╠══ postcss.config.mjs
-    ╠══ next.config.mjs
-    ╠══ README.md
-    ╠══ tailwind.config.ts
     ╠══ tsconfig.json
+    ╠══ .gitignore
     ╠══ public/
     ║    ╠══ vercel.svg
     ║    ╚══ next.svg
+    ╠══ .env
     ╠══ package.json
+    ╠══ LICENSE
+    ╠══ README.md
     ╠══ src/
-    ║    ╠══ constants/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ mocks/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ schema/
-    ║    ║    ╚══ index.ts
-    ║    ╠══ styles/
-    ║    ║    ╚══ tw.css
     ║    ╠══ screens/
     ║    ║    ╠══ index.ts
     ║    ║    ╚══ Home
     ║    ║    ║    ╚══ index.tsx
-    ║    ╠══ lib/
-    ║    ║    ╠══ redux/
-    ║    ║    ║    ╠══ reducer/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ╠══ middleware/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ hooks/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ store/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ config/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ slice/
-    ║    ║    ║    ║    ╠══ user/
-    ║    ║    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ║    ║    ╚══ user.types.ts
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╚══ api
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ nextAuth
-    ║    ║    ║    ╠══ auth/
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ╚══ options
-    ║    ║    ║    ║    ╚══ index.ts
-    ║    ╠══ hooks/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ useNavigationList
-    ║    ║    ║    ╠══ useNavigationList.types.ts
-    ║    ║    ║    ╚══ index.tsx
     ║    ╠══ service/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ customFetch
+    ║    ║    ╠══ customFetch/
+    ║    ║    ║    ╠══ API.ts
     ║    ║    ║    ╠══ fetch.types.ts
-    ║    ║    ║    ╠══ index.ts
     ║    ║    ║    ╠══ SERVER.ts
-    ║    ║    ║    ╚══ API.ts
-    ║    ╠══ functions/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ createQueryStrings.ts
-    ║    ╠══ types/
-    ║    ║    ╠══ index.ts
-    ║    ║    ╚══ QueryArgs.ts
-    ║    ╠══ components/
-    ║    ║    ╠══ Stack/
-    ║    ║    ║    ╚══ index.tsx
-    ║    ║    ╠══ Breadcrumb/
-    ║    ║    ║    ╠══ Breadcrumb.types.ts
-    ║    ║    ║    ╚══ index.tsx
-    ║    ║    ╠══ ActiveLink/
-    ║    ║    ║    ╚══ index.tsx
-    ║    ║    ╠══ index.ts
-    ║    ║    ╠══ OTP/
-    ║    ║    ║    ╠══ OTP.types.ts
-    ║    ║    ║    ╠══ index.tsx
-    ║    ║    ║    ╚══ enum
-    ║    ║    ║    ║    ╠══ index.ts
-    ║    ║    ║    ║    ╠══ height.ts
-    ║    ║    ║    ║    ╠══ width.ts
-    ║    ║    ║    ║    ╚══ spacing.ts
-    ║    ║    ╚══ Text
     ║    ║    ║    ╚══ index.ts
+    ║    ║    ╚══ index.ts
+    ║    ╠══ enum/
+    ║    ║    ╠══ method.fetch.ts
+    ║    ║    ╚══ index.ts
+    ║    ╠══ schema/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ mocks/
+    ║    ║    ╚══ index.ts
     ║    ╠══ app/
     ║    ║    ╠══ api/
+    ║    ║    ║    ╠══ secure/
+    ║    ║    ║    ║    ╚══ route.ts
     ║    ║    ║    ╠══ auth/
     ║    ║    ║    ║    ╚══ [...nextauth]
     ║    ║    ║    ║    ║    ╚══ route.ts
-    ║    ║    ║    ╠══ secure/
-    ║    ║    ║    ║    ╚══ route.ts
     ║    ║    ║    ╚══ public
     ║    ║    ║    ║    ╚══ route.ts
     ║    ║    ╠══ favicon.ico
     ║    ║    ╠══ page.tsx
     ║    ║    ╚══ layout.tsx
+    ║    ╠══ types/
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ QueryArgs.ts
+    ║    ╠══ hooks/
+    ║    ║    ╠══ useNavigationList/
+    ║    ║    ║    ╠══ useNavigationList.types.ts
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╚══ index.ts
+    ║    ╠══ components/
+    ║    ║    ╠══ Stack/
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╠══ ActiveLink/
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╠══ index.ts
+    ║    ║    ╠══ Text/
+    ║    ║    ║    ╚══ index.ts
+    ║    ║    ╠══ OTP/
+    ║    ║    ║    ╠══ OTP.types.ts
+    ║    ║    ║    ╠══ enum/
+    ║    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ║    ╠══ height.ts
+    ║    ║    ║    ║    ╠══ width.ts
+    ║    ║    ║    ║    ╚══ spacing.ts
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╠══ Breadcrumb/
+    ║    ║    ║    ╠══ Breadcrumb.types.ts
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╠══ CustomInput/
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╠══ CustomSelect/
+    ║    ║    ║    ╚══ index.tsx
+    ║    ║    ╚══ Theme
+    ║    ║    ║    ╠══ Theme.types.ts
+    ║    ║    ║    ╚══ index.tsx
     ║    ╠══ errors/
     ║    ║    ╚══ index.ts
-    ║    ╠══ enum/
-    ║    ║    ╠══ method.fetch.ts
-    ║    ║    ╚══ index.ts
+    ║    ╠══ providers/
+    ║    ║    ╠══ theme.provider.tsx
+    ║    ║    ╠══ nextUI.provider.tsx
+    ║    ║    ╠══ redux.provider.tsx
+    ║    ║    ╠══ nextAuth.privider.tsx
+    ║    ║    ╚══ index.tsx
     ║    ╠══ utils/
     ║    ║    ╠══ index.ts
     ║    ║    ╚══ capitalizeWords.ts
-    ║    ╚══ providers
-    ║    ║    ╠══ nextAuth.privider.tsx
-    ║    ║    ╠══ index.tsx
-    ║    ║    ╠══ redux.provider.tsx
-    ║    ║    ╚══ nextUI.provider.tsx
-    ╠══ LICENSE
-    ╠══ .gitignore
-    ╚══ pnpm-lock.yaml
+    ║    ╠══ lib/
+    ║    ║    ╠══ redux/
+    ║    ║    ║    ╠══ api/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ reducer/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ╠══ slice/
+    ║    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ║    ╚══ user
+    ║    ║    ║    ║    ║    ╠══ user.types.ts
+    ║    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ store/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ middleware/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╠══ hooks/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╚══ config
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ╠══ index.ts
+    ║    ║    ╚══ nextAuth
+    ║    ║    ║    ╠══ index.ts
+    ║    ║    ║    ╠══ auth/
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ║    ║    ╚══ options
+    ║    ║    ║    ║    ╚══ index.ts
+    ║    ╠══ constants/
+    ║    ║    ╚══ index.ts
+    ║    ╠══ styles/
+    ║    ║    ╚══ tw.css
+    ║    ╚══ functions
+    ║    ║    ╠══ createQueryStrings.ts
+    ║    ║    ╚══ index.ts
+    ╠══ pnpm-lock.yaml
+    ╠══ postcss.config.mjs
+    ╠══ .eslintrc.json
+    ╠══ .npmrc
+    ╠══ next.config.mjs
+    ╚══ tailwind.config.ts
 
 # _**Enjoying the project? Show your support by giving it a star! ✨**_
 
