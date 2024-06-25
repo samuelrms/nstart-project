@@ -13,7 +13,7 @@ export const Stack = ({
   className,
   ...props
 }: StackProps) => {
-  const Element = elementType || "div";
+  const Element = elementType;
 
   const classNameProps = twMerge("flex", className);
 
