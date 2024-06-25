@@ -19,7 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const bodyClassName = twMerge(
-    "max-w-screen bg-black text-white min-h-screen",
+    "max-w-screen min-h-screen text-foreground",
     inter.className
   );
   const userLogged = await auth();
