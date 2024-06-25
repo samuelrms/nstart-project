@@ -1,7 +1,7 @@
 import { createElement } from "react";
 
 export type TextProps = {
-  elementType?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
+  elementType?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span" | "pre";
   children: React.ReactNode;
   className?: string;
 } & React.HTMLAttributes<HTMLElement>;
