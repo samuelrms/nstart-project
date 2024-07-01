@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { FETCH_OPTIONS } from "@/enum";
+import { FETCH_OPTIONS } from "@/helpers/enum";
 import { QueryArgs } from "@/types";
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../store";
