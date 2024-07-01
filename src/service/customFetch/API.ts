@@ -1,6 +1,6 @@
-import { FETCH_OPTIONS } from "@/enum";
-import { createQueryStrings } from "@/functions";
-import { API_BASE } from "../../constants";
+import { FETCH_OPTIONS } from "@/helpers/enum";
+import { createQueryStrings } from "@/helpers/functions";
+import { API_BASE } from "../../helpers/constants";
 import { FetchRequestProps } from "./fetch.types";
 
 /**

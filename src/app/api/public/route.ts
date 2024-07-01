@@ -1,4 +1,4 @@
-import { FETCH_OPTIONS } from "@/enum";
+import { FETCH_OPTIONS } from "@/helpers/enum";
 import { fetchAPI } from "@/service";
 import { NextRequest, NextResponse } from "next/server";
 

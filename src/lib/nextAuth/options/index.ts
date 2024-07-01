@@ -10,7 +10,7 @@ import {
   COOKIE_SESSION_NAME,
   UPDATE_AGE_SESSION,
   secretKey,
-} from "@/constants";
+} from "@/helpers/constants";
 import { jwtCallback, sessionCallback } from "../auth";
 
 export const authOptions: AuthOptions = {

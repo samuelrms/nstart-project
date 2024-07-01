@@ -1,6 +1,6 @@
 "use client";
 
-import { DURATION_TOAST, FULL_Z_INDEX } from "@/constants";
+import { DURATION_TOAST, FULL_Z_INDEX } from "@/helpers/constants";
 import { UserState } from "@/lib";
 import { I18nProvider } from "@react-aria/i18n";
 import { AppProgressBar } from "next-nprogress-bar";
