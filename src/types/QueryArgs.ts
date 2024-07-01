@@ -1,4 +1,4 @@
-import { FETCH_OPTIONS } from "@/enum";
+import { FETCH_OPTIONS } from "@/helpers/enum";
 
 export type QueryArgs<Params = {}, Body = {}> = {
   path: string;
