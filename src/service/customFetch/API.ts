@@ -1,5 +1,5 @@
-import { createQueryStrings } from "@/functions";
-import { FETCH_OPTIONS } from "@/hel@/helpers/functions";
+import { FETCH_OPTIONS } from "@/helpers/enum";
+import { createQueryStrings } from "@/helpers/functions";
 import { API_BASE } from "../../helpers/constants";
 import { FetchRequestProps } from "./fetch.types";
 
