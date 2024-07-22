@@ -5,6 +5,9 @@ import { QueryArgs } from "@/types";
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
+/**
+ * ANCHOR - Configuration template, don't change it if you don't know what you're doing
+ */
 export const apiServiceRedux = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "/api/" }),
@@ -25,6 +28,9 @@ export const apiServiceRedux = createApi({
 
 export const { useDynamicQueryQuery: useDynamicQuery } = apiServiceRedux;
 
+/**
+ * ANCHOR - Configuration template, don't change it if you don't know what you're doing
+ */
 export const selectDynamicQueryResult = (args: {
   path: string;
   method?: FETCH_OPTIONS;
