@@ -1,23 +1,13 @@
 "use client";
 
 import { createUserFormSchema } from "@/helpers/schema";
+import { defaultValuesFormExample } from "@/mocks";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import { Stack } from "../Stack";
 import { Text } from "../Text";
-
-type CreateUserFormData = {
-  username: string;
-  password: string;
-  confirm_password: string;
-};
-
-const defaultValues = {
-  username: "",
-  password: "",
-  confirm_password: "",
-};
+import { CreateUserFormData } from "./FormExemple.types";
 
 export const FormExample = () => {
   const {
@@ -26,7 +16,7 @@ export const FormExample = () => {
     formState: { errors },
     watch,
   } = useForm<CreateUserFormData>({
-    defaultValues,
+    defaultValues: defaultValuesFormExample,
     resolver: zodResolver(createUserFormSchema),
   });
 
