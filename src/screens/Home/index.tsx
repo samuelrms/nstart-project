@@ -1,6 +1,7 @@
 "use client";
 
 import { Stack, Text } from "@/components";
+import { FormExample } from "@/components/FormExemple";
 import { Theme } from "@/components/Theme";
 import {
   RootState,
@@ -8,6 +9,7 @@ import {
   useAppSelector,
   useDynamicQuery,
 } from "@/lib";
+import { Divider } from "@nextui-org/react";
 
 const Home = () => {
   const { data, error, isLoading } = useDynamicQuery({
@@ -35,6 +37,8 @@ const Home = () => {
         <Stack className="w-full flex justify-end">
           <Theme />
         </Stack>
+        <Divider />
+        <FormExample />
         <Stack>
           <Text elementType="h2">Data from Store:</Text>
           <Text elementType="pre">
